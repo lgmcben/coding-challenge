@@ -19,12 +19,9 @@ class LinkedList {
     }
 
     size() {
-        if(this.head === null) {
-            return 0;
-        }
         let pointer = this.head;
-        let accumulatedSize = 1;
-        while(pointer.next !== null){
+        let accumulatedSize = 0;
+        while(pointer !== null){
             accumulatedSize += 1;
             pointer = pointer.next;
         }
