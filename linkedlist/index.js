@@ -30,6 +30,10 @@ class LinkedList {
         }
         return accumulatedSize;         
     }
+
+    getFirst() {
+        return this.head;
+    }
 }
 
 module.exports = { Node, LinkedList };
