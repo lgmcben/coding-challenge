@@ -34,6 +34,20 @@ class LinkedList {
     getFirst() {
         return this.head;
     }
+
+    getLast() {
+        if(this.head === null){
+            return null;
+        }
+
+        let pointer = this.head;
+        
+        while(pointer.next !== null) {
+            pointer = pointer.next;
+        }
+
+        return pointer;
+    }
 }
 
 module.exports = { Node, LinkedList };
