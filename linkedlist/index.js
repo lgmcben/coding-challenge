@@ -17,6 +17,19 @@ class LinkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+
+    size() {
+        if(this.head === null) {
+            return 0;
+        }
+        let pointer = this.head;
+        let accumulatedSize = 1;
+        while(pointer.next !== null){
+            accumulatedSize += 1;
+            pointer = pointer.next;
+        }
+        return accumulatedSize;         
+    }
 }
 
 module.exports = { Node, LinkedList };
