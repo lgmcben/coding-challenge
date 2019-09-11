@@ -42,8 +42,11 @@ class LinkedList {
         while(pointer.next !== null) {
             pointer = pointer.next;
         }
-
         return pointer;
+    }
+
+    clear() {
+        this.head = null;
     }
 }
 
