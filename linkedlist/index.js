@@ -53,9 +53,30 @@ class LinkedList {
         if(this.head === null) {
             return;
         }
-
         this.head = this.head.next;
+    }
+
+    removeLast() {
+        if(this.head === null) {
+            return;
+        }
+
+        if(this.head.next === null) {
+            this.head = null;
+            return;
+        }
+
+        let previousNode = this.head;
+        let currentNode = this.head.next;
+
+        while(currentNode.next !== null){
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        } 
+
+        previousNode.next = null;
     }
 }
 
 module.exports = { Node, LinkedList };
+
