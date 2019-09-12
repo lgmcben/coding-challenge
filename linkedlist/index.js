@@ -81,10 +81,9 @@ class LinkedList {
         let newNode = new Node(data);
         if(this.head === null) {
             this.head = newNode;
+        } else {
+            this.getLast().next = newNode;
         } 
-
-        this.getLast().next = newNode;
-
     }
 }
 
