@@ -109,12 +109,9 @@ class LinkedList {
     }
 
     removeAt(index) {
+
         if(index === 0) {
-            let firstNode = this.getFirst();
-            if(!firstNode) {
-                return;
-            } 
-            this.head = firstNode.next;
+            this.head = this.head.next;
         }
 
         let previousNode = this.getAt(index -1);
@@ -131,3 +128,4 @@ class LinkedList {
 }
 
 module.exports = { Node, LinkedList };
+
