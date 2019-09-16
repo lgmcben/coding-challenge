@@ -121,6 +121,10 @@ class LinkedList {
 
         let previousNode = this.getAt(index -1);
 
+        if(!previousNode) {
+            return;
+        }
+
         if(!previousNode.next) {
             return;
         }
