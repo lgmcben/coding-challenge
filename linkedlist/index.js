@@ -110,14 +110,16 @@ class LinkedList {
 
     removeAt(index) {
 
+        if(!this.head){
+            return;
+        }
+
         if(index === 0) {
             this.head = this.head.next;
+            return;
         }
 
         let previousNode = this.getAt(index -1);
-        if(!previousNode) {
-            return;
-        }
 
         if(!previousNode.next) {
             return;
