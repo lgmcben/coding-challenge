@@ -87,7 +87,7 @@ class LinkedList {
     }
 
     getAt(index) {
-        if(index < 0){
+        if(index < 0) {
             return null;
         }
 
@@ -109,8 +109,7 @@ class LinkedList {
     }
 
     removeAt(index) {
-
-        if(!this.head){
+        if(!this.head) {
             return;
         }
 
@@ -131,7 +130,47 @@ class LinkedList {
 
         previousNode.next = previousNode.next.next;
     }
+
+    insertAt(data, index) {
+        const newNode = new Node(data);
+
+        // Empty linked list
+        if(!this.head) {
+            this.head = newNode;
+            return;
+        }
+
+        // index = 0, head is not null
+        if(index === 0) {
+            const temp = this.head;
+            this.head = newNode;
+            this.head.next = temp;
+            return;
+        }
+
+        const previousNode = this.getAt(index -1);
+
+        // Target index out of bound
+        if(!previousNode) { 
+            const lastNode = this.getLast();
+            lastNode.next = newNode;
+            return;
+        }
+        
+        // Target index is (the null) next to the last node
+        if(!previousNode.next) {  
+            previousNode.next = newNode;
+            return;
+        }
+
+        // There's a node at target index
+        if(previousNode.next) {
+            const temp = previousNode.next;
+            previousNode.next = newNode;
+            newNode.next = temp;
+            return;
+        }
+    }
 }
 
 module.exports = { Node, LinkedList };
-
