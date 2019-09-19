@@ -171,6 +171,30 @@ class LinkedList {
             return;
         }
     }
+
+    forEach(fn) {
+        if(!this.head){
+            return;
+        }
+
+        let pointer = this.head;
+
+        while(pointer){
+            // todo: research why 'this' variable is logged as some generic object
+            fn.call(this, pointer);
+            pointer = pointer.next;
+        }
+    }
 }
+
+	
+const list = new LinkedList();
+list.insertLast(1);
+list.insertLast(2);
+list.forEach((node) => {
+    //console.log(this.toString());
+    console.log(node.data);
+});
+
 
 module.exports = { Node, LinkedList };
