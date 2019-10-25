@@ -48,11 +48,24 @@ class Tree {
             fn(node);
         }
     }
+
+    traverseDF(fn) {
+        if(!this.root) {
+            return;
+        }
+
+        let holder = [this.root];
+
+        while(holder.length > 0) {
+            const node = holder.shift();
+            holder = [...node.children, ...holder];
+            fn(node);
+        }
+    }
 }
 
 
 const node1 = new Node(10);
-node1.add(10);
 node1.add(20);
 node1.add(30);
 node1.children[0].add(40);
@@ -64,6 +77,6 @@ node1.children[1].add(90);
 
 const tree = new Tree();
 tree.root = node1;
-tree.traverseBF((node)=>console.log(`current node data = ${node.data}`) );
+tree.traverseDF((node)=>console.log(`current node data = ${node.data}`) );
 
 module.exports = { Tree, Node };
